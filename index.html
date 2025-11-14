@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIDNEY WUNGANAI</title>
+<meta name="description" content="Portfolio website of Sidney Wunganai, Web Developer">
+
+<style>
+/* ----------------------------------------------------
+   GLOBAL STYLES
+----------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Poppins, Arial, sans-serif;
+    background: #0e1a2b;
+    color: #e6e6e6;
+    transition: background 0.4s, color 0.4s;
+}
+
+/* Light Mode */
+body.light {
+    background: #f4f4f4;
+    color: #222;
+}
+body.light .nav, 
+body.light header,
+body.light footer {
+    background: #fff;
+}
+body.light a {
+    color: #0077cc;
+}
+
+/* ----------------------------------------------------
+   NAVIGATION
+----------------------------------------------------- */
+header {
+    background: #0c1624;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #1f2d40;
+}
+nav {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #4db8ff;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+.nav-links li {
+    margin-left: 20px;
+}
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.nav-links a:hover {
+    color: #4db8ff;
+}
+
+/* Dark mode button */
+.toggle-btn {
+    cursor: pointer;
+    padding: 8px 16px;
+    background: #4db8ff;
+    color: #000;
+    border-radius: 20px;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+.toggle-btn:hover {
+    background: #86d4ff;
+}
+
+/* ----------------------------------------------------
+   HERO SECTION
+----------------------------------------------------- */
+.hero {
+    padding: 5rem 1rem;
+    text-align: center;
+}
+.hero img {
+    width: 120px;
+    margin: 20px 0;
+}
+.hero h2 span {
+    color: #4db8ff;
+}
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 10px 24px;
+    background: #4db8ff;
+    color: #0d1b2a;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.btn:hover {
+    background: #86d4ff;
+}
+
+/* ----------------------------------------------------
+   SECTIONS
+----------------------------------------------------- */
+section {
+    width: 90%;
+    margin: auto;
+    padding: 3rem 1rem;
+}
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #4db8ff;
+}
+
+/* ----------------------------------------------------
+   SKILLS SECTION
+----------------------------------------------------- */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+}
+.skill-box {
+    background: #14263b;
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.skill-box:hover {
+    transform: scale(1.05);
+    background: #1d3557;
+}
+.skill-box img {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+/* ----------------------------------------------------
+   PROJECTS
+----------------------------------------------------- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 20px;
+}
+.project-card {
+    background: #14263b;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.project-card:hover {
+    transform: scale(1.05);
+    background: #1d3557;
+}
+.project-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* ----------------------------------------------------
+   BLOG SECTION
+----------------------------------------------------- */
+.blog-card {
+    background: #14263b;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* ----------------------------------------------------
+   NEWS SECTION WITH SEARCH BAR
+----------------------------------------------------- */
+#news-search {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: none;
+}
+.news-card {
+    background: #14263b;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* ----------------------------------------------------
+   CONTACT SECTION
+----------------------------------------------------- */
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+}
+form button {
+    padding: 12px 24px;
+    background: #4db8ff;
+    border: none;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.socials svg {
+    width: 35px;
+    height: 35px;
+    fill: #25D366;
+    margin-top: 10px;
+}
+
+/* ----------------------------------------------------
+   FOOTER
+----------------------------------------------------- */
+footer {
+    background: #0c1624;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* ----------------------------------------------------
+   RESPONSIVE
+----------------------------------------------------- */
+@media(max-width:600px){
+    .nav-links {
+        flex-direction: column;
+        background: #0c1624;
+        padding: 10px;
+        border-radius: 10px;
+    }
+}
+</style>
+
+<!-- Dark Mode Script -->
+<script>
+function toggleTheme() {
+    document.body.classList.toggle("light");
+}
+</script>
+
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">Sidney Wunganai</div>
+        <ul class="nav-links">
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Portfolio</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="toggle-btn" onclick="toggleTheme()">Light/Dark</div>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <h2>Hello, I'm <span>Sidney Wunganai</span></h2>
+    <p>Web Developer • UI Designer • Tech Enthusiast</p>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/2721/2721290.png" alt="Developer Icon">
+
+    <a href="files/cv.pdf" download class="btn">Download My CV</a>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2>My Website Development Skills</h2>
+
+    <div class="skills-container">
+
+        <div class="skill-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png">
+            <h3>HTML5 Development</h3>
+            <p>Clean and semantic website structures.</p>
+        </div>
+
+        <div class="skill-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png">
+            <h3>CSS3</h3>
+            <p>Responsive layouts & animations.</p>
+        </div>
+
+        <div class="skill-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/10397/10397546.png">
+            <h3>UI Design</h3>
+            <p>Modern interface design + accessibility.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2>Portfolio Work</h2>
+
+    <div class="project-grid">
+        <div class="project-card">
+            <img src="https://cdn.dribbble.com/users/181545/screenshots/14108002/media/d8f3652f99382dd75f1bbf9f0b9de6cf.png">
+            <h3>Modern UI Website</h3>
+        </div>
+
+        <div class="project-card">
+            <img src="https://cdn.dribbble.com/users/1162077/screenshots/13891206/media/4b7cd96f8864c8ad107ac2ffb5f3e30e.png">
+            <h3>Portfolio Website</h3>
+        </div>
+    </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+    <h2>My Blog</h2>
+
+    <div class="blog-card">
+        <h3>Why Web Development Matters</h3>
+        <p>The world runs on websites — businesses, education, communication, everything.</p>
+    </div>
+
+    <div class="blog-card">
+        <h3>How I Build Websites</h3>
+        <p>I focus on simplicity, speed, and a strong user experience.</p>
+    </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+    <h2>Latest Tech News</h2>
+
+    <input type="text" id="news-search" placeholder="Search news...">
+
+    <div class="news-card">
+        <h3>New AI Web Tools</h3>
+        <p>Web development is evolving with new AI assistance tools.</p>
+    </div>
+
+    <div class="news-card">
+        <h3>2025 UI Trends</h3>
+        <p>Soft shadows, glassmorphism, animations, and gradients.</p>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact Me</h2>
+
+    <form action="mailto:sidney@example.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <p>WhatsApp Me:</p>
+    <a href="https://wa.me/263773449730">
+        <svg viewBox="0 0 32 32"><path d="M16 .3C7.2.3.1 7.4.1 16.1c0 2.8.7 5.4 2 7.7L0 32l8.4-2.1c2.2 1.2 4.7 1.8 7.3 1.8 8.8 0 15.9-7.1 15.9-15.9S24.8.3 16 .3z"/></svg>
+    </a>
+</section>
+
+<footer>
+    <p>© 2025 Sidney Wunganai — All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
